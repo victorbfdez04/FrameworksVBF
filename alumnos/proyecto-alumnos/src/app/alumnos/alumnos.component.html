@@ -1,0 +1,9 @@
+<p class="barra">
+ <button type="button" class="btn" (click)="abrirAlta()">+ Nuevo alumno</button>
+</p>
+@if (modalAltaAbierto()) {
+ <app-modal titulo="Nuevo alumno" (cerrar)="cerrarAlta()">
+ <app-nuevo-alumno (guardado)="cerrarAlta()" (cancelado)="cerrarAlta()" />
+ </app-modal>
+}
+<app-lista-alumnos />

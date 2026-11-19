@@ -1,0 +1,15 @@
+<article class="tarjeta">
+ <div>
+ <h3>{{ alumno().nombre }}</h3>
+ <p>{{ alumno().usuario }} · {{ alumno().email }} · {{ alumno().curso }}</p>
+ </div>
+ <div class="acciones">
+ <button type="button" class="btn-sec" (click)="abrirModal()">Ver / editar</button>
+ <button type="button" class="btn-peligro" (click)="onEliminar()">Eliminar</button>
+ </div>
+</article>
+@if (modalAbierto()) {
+ <app-modal titulo="Detalle del alumno" (cerrar)="cerrarModal()">
+ <app-detalle-alumno [alumno]="alumno()" (cerrar)="cerrarModal()" />
+ </app-modal>
+}

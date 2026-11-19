@@ -1,0 +1,17 @@
+<form (ngSubmit)="onGuardar()" #f="ngForm">
+ <p><label for="d-nombre">Nombre</label>
+ <input id="d-nombre" name="nombre" [(ngModel)]="datos.nombre"
+ required minlength="3" /></p>
+ <p><label for="d-usuario">Usuario</label>
+ <input id="d-usuario" name="usuario" [(ngModel)]="datos.usuario" required /></p>
+ <p><label for="d-email">Email</label>
+ <input id="d-email" name="email" type="email" [(ngModel)]="datos.email"
+ required email /></p>
+ <p><label for="d-curso">Curso</label>
+ <input id="d-curso" name="curso" [(ngModel)]="datos.curso" required /></p>
+ <p class="acciones">
+ <button type="button" class="btn-peligro" (click)="onEliminar()">Eliminar</button>
+ <button type="button" class="btn-sec" (click)="cerrar.emit()">Cancelar</button>
+ <button class="btn" [disabled]="f.invalid">Guardar cambios</button>
+ </p>
+</form>

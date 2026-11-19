@@ -1,0 +1,10 @@
+<section>
+ <input type="search" placeholder="Buscar..." (input)="onBuscar(caja.value)" #caja />
+ <ul>
+ @for (alumno of alumnos(); track alumno.id) {
+ <li><app-item-alumno [alumno]="alumno" /></li>
+ } @empty {
+ <li>No hay alumnos.</li>
+ }
+ </ul>
+</section>

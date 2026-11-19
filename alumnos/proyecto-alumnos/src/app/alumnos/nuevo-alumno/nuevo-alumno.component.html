@@ -1,0 +1,30 @@
+<form (ngSubmit)="onGuardar(f)" #f="ngForm">
+ <p>
+ <label for="nombre">Nombre</label>
+ <input id="nombre" name="nombre" [(ngModel)]="datos.nombre"
+ required minlength="3" #nombre="ngModel" />
+ @if (nombre.invalid && nombre.touched) {
+ <small class="error">Obligatorio, mínimo 3 caracteres.</small>
+ }
+ </p>
+ <p>
+ <label for="usuario">Usuario</label>
+ <input id="usuario" name="usuario" [(ngModel)]="datos.usuario" required />
+ </p>
+ <p>
+ <label for="email">Email</label>
+ <input id="email" name="email" type="email" [(ngModel)]="datos.email"
+ required email #email="ngModel" />
+ @if (email.invalid && email.touched) {
+ <small class="error">Email no válido.</small>
+ }
+ </p>
+ <p>
+ <label for="curso">Curso</label>
+ <input id="curso" name="curso" [(ngModel)]="datos.curso" required />
+ </p>
+ <p class="acciones">
+ <button type="button" class="btn-sec" (click)="cancelado.emit()">Cancelar</button>
+ <button class="btn" [disabled]="f.invalid">Dar de alta</button>
+ </p>
+</form>

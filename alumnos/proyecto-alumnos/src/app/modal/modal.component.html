@@ -1,0 +1,10 @@
+<div class="fondo" (click)="cerrar.emit()">
+ <div class="ventana" role="dialog" aria-modal="true"
+ (click)="$event.stopPropagation()">
+ <header>
+ <h2>{{ titulo() }}</h2>
+ <button type="button" (click)="cerrar.emit()">X</button>
+ </header>
+ <ng-content />
+ </div>
+</div>
